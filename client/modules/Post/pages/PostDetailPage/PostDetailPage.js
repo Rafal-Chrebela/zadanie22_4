@@ -20,7 +20,8 @@ export class PostDetailPage extends React.Component {
     this.state = {
       name: this.props.post.name,
       title: this.props.post.title,
-      content: this.props.post.content
+      content: this.props.post.content,
+      voteCount: this.props.post.voteCount
     };
   }
 
@@ -132,7 +133,8 @@ PostDetailPage.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired
+    cuid: PropTypes.string.isRequired,
+    voteCount: PropTypes.number.isRequired
   }).isRequired,
   intl: PropTypes.shape({
     messages: PropTypes.shape({
