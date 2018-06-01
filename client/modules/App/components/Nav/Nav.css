@@ -1,0 +1,30 @@
+.nav {
+  background: rgba(0, 0, 0, 0.158);
+}
+
+.nav ul {
+  list-style: none;
+  width: 980px;
+  margin: auto;
+  text-align: left;
+}
+
+.nav li {
+  display: inline-block;
+  margin: 0;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.nav li:hover {
+  background: rgba(0, 0, 0, 0.342);
+}
+
+.nav li * {
+  color: #fff;
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: 1px solid #fff;
+}
