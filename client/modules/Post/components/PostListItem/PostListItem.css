@@ -118,3 +118,15 @@ textarea {
   font-size: 16px;
   color: #555;
 }
+
+button {
+  background-color: #03a9f4;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 10px;
+}

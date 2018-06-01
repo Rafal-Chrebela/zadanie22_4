@@ -1,10 +1,10 @@
 /* eslint-disable global-require */
-import React from 'react';
-import { Route, IndexRoute } from 'react-router';
-import App from './modules/App/App';
+import React from "react";
+import { Route, IndexRoute } from "react-router";
+import App from "./modules/App/App";
 
 // require.ensure polyfill for node
-if (typeof require.ensure !== 'function') {
+if (typeof require.ensure !== "function") {
   require.ensure = function requireModule(deps, callback) {
     callback(require);
   };
@@ -14,10 +14,10 @@ if (typeof require.ensure !== 'function') {
   https://github.com/reactjs/react-router/issues/2182 and
   https://github.com/gaearon/react-hot-loader/issues/288 is fixed.
  */
-if (process.env.NODE_ENV !== 'production') {
-  // Require async routes only in development for react-hot-reloader to work.
-  require('./modules/Post/pages/PostListPage/PostListPage');
-  require('./modules/Post/pages/PostDetailPage/PostDetailPage');
+if (process.env.NODE_ENV !== "production") {
+  require("./modules/Post/pages/PostListPage/PostListPage");
+  require("./modules/Post/pages/PostDetailPage/PostDetailPage");
+  require("./modules/Home/Home");
 }
 
 // react-router setup with code-splitting
@@ -27,7 +27,10 @@ export default (
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+          cb(
+            null,
+            require("./modules/Post/pages/PostListPage/PostListPage").default
+          );
         });
       }}
     />
@@ -35,7 +38,19 @@ export default (
       path="/posts/:slug-:cuid"
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostDetailPage/PostDetailPage').default);
+          cb(
+            null,
+            require("./modules/Post/pages/PostDetailPage/PostDetailPage")
+              .default
+          );
+        });
+      }}
+    />
+    <Route
+      path="/home"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require("./modules/Home/Home").default);
         });
       }}
     />
